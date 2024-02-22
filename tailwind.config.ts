@@ -12,6 +12,10 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-pretendard)']
+      },
+      backgroundImage: {
+        'hero-pattern':
+          'radial-gradient( 100% 150% at 50% -35%, rgba(14, 16, 21, 0) 0%, rgb(14, 16, 21, 0.75) 100% ), linear-gradient( 180deg, rgba(14, 16, 21, 0) -35%, rgba(14, 16, 21, 0.375) 100% ), linear-gradient( 180deg, rgba(14, 16, 21, 0.375) -35%, rgba(14, 16, 21, 0) 100% ), url(/assets/main_hero.png)'
       }
     }
   },
