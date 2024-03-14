@@ -2,6 +2,9 @@
   "name": "hbgg",
   "version": "0.1.0",
   "private": true,
+  "main": "main/main.js",
+  "author": "RBFraphael",
+  "description": "Electron + NextJS example project",
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
@@ -10,6 +13,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.10",
+    "@tauri-apps/api": "^1.5.3",
     "framer-motion": "^11.0.8",
     "next": "14.1.3",
     "next-themes": "^0.2.1",
@@ -19,6 +23,7 @@
   },
   "devDependencies": {
     "@iconify/react": "^4.1.1",
+    "@tauri-apps/cli": "2.0.0-beta.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -26,6 +31,7 @@
     "@typescript-eslint/parser": "^7.0.1",
     "autoprefixer": "^10.4.8",
     "clsx": "^2.1.0",
+    "concurrently": "^8.2.2",
     "eslint": "^8",
     "eslint-config-next": "14.1.3",
     "eslint-config-prettier": "^9.1.0",

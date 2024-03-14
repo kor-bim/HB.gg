@@ -21,3 +21,28 @@
         text-wrap: initial;
     }
 }
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: none;
+}
+
+::-webkit-scrollbar-track {
+    background: inherit;
+}
+
+::-webkit-scrollbar-button:start,
+::-webkit-scrollbar-button:end {
+    display: none;
+}
+
+::-webkit-scrollbar-button:horizontal:start,
+::-webkit-scrollbar-button:horizontal:end {
+    display: none;
+}
+

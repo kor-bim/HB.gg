@@ -1,7 +1,7 @@
 'use client'
 
 import { SearchIcon } from '@nextui-org/shared-icons'
-import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete'
+import { Autocomplete } from '@nextui-org/autocomplete'
 
 export const Search = () => {
   return (

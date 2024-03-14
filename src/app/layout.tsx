@@ -4,6 +4,7 @@ import { Providers } from '@/app/providers'
 import { ReactNode } from 'react'
 import { GnbMenu } from '@/app/_component/gnb-menu'
 import { PretendardFont } from '@/app/fonts'
+import { TitleBar } from './_component/title-bar'
 
 export const metadata: Metadata = {
   title: {
@@ -51,8 +52,13 @@ export default function RootLayout({
     <html suppressHydrationWarning lang={'ko'} dir={'ltr'}>
       <body className={`antialiased ${PretendardFont.variable} font-sans`}>
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-          <GnbMenu />
-          <main className="overflow-x-hidden overflow-y-auto">{children}</main>
+          <main id="hbgg-app">
+            <div className="flex flex-col h-[100vh]">
+              <TitleBar />
+              <GnbMenu />
+              <div className="overflow-x-hidden overflow-y-auto">{children}</div>
+            </div>
+          </main>
         </Providers>
       </body>
     </html>
