@@ -4,7 +4,7 @@ import { Button } from '@nextui-org/button'
 
 export const GnbMenu = () => {
   return (
-    <Navbar>
+    <Navbar className="select-none">
       <NavbarContent justify="start"></NavbarContent>
       <NavbarContent className="gap-12" justify="center">
         <NavbarItem>
