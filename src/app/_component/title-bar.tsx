@@ -1,55 +1,49 @@
 'use client'
 
-import { WebviewWindow } from '@tauri-apps/api/window'
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { getCurrent, LogicalPosition } from '@tauri-apps/api/window'
+import { useState } from 'react'
 import { Icon } from '@iconify/react'
+import Image from 'next/image'
 
 export const TitleBar = () => {
-  const [appWindow, setAppWindow] = useState<WebviewWindow>()
+  const [position, setPosition] = useState({ x: 0, y: 0 })
 
-  async function setupAppWindow() {
-    setAppWindow((await import('@tauri-apps/api/window')).appWindow)
+  const minimizeWebview = async () => {
+    await getCurrent().minimize()
   }
-
-  useEffect(() => {
-    setupAppWindow().then((r) => console.log(r))
-  }, [])
-
-  function windowMinimize() {
-    appWindow?.minimize()
+  const maximizeWebview = async () => {
+    if (await getCurrent().isMaximized()) {
+      await getCurrent().setPosition(new LogicalPosition(position.x, position.y))
+    } else {
+      const { x, y } = await getCurrent().innerPosition()
+      await getCurrent().maximize()
+      setPosition({ x, y })
+    }
   }
-
-  function windowToggleMaximize() {
-    appWindow?.toggleMaximize()
-  }
-
-  function windowClose() {
-    appWindow?.close()
+  const closeWebview = async () => {
+    await getCurrent().close()
   }
 
   return (
-    <div className="w-full flex items-center justify-between overflow-hidden h-[100px] px-3 mt-2 pb-2 border-b-1 border-neutral-800">
-      <div className="h-[30px] flex items-center justify-center gap-3">
-        <Image src="/assets/logo-text.svg" alt="Logo" width={20} height={20} priority />
-        <span>HB.GG</span>
+    <div
+      data-tauri-drag-region="true"
+      className="relative w-full h-[50px] min-h-[50px] flex items-center justify-between overflow-hidden px-3 border-b-1 border-neutral-800 select-none"
+    >
+      <div data-tauri-drag-region="true" className="flex items-center justify-center gap-3">
+        <Image src="/assets/logo-text.svg" alt="Logo" width={100} height={35} priority />
       </div>
-      <div data-tauri-drag-region="true" className="w-full h-[30px] flex items-center justify-end gap-2">
-        <div className="titlebar-button" id="titlebar-minimize" onClick={windowMinimize}>
+      <div data-tauri-drag-region="true" className="w-full flex items-center justify-end gap-2">
+        <div className="titlebar-button" id="titlebar-minimize" onClick={minimizeWebview}>
           <Icon
-            icon="solar:minimize-square-outline"
+            icon="solar:minimize-square-3-outline"
             width={30}
-            className="cursor-pointer text-neutral-500 hover:text-neutral-100"
+            className="cursor-pointer text-neutral-500 hover:text-neutral-100 object-cover"
           />
         </div>
-        <div className="titlebar-button" id="titlebar-maximize" onClick={windowToggleMaximize}>
-          <Icon
-            icon="solar:maximize-square-outline"
-            width={30}
-            className="cursor-pointer text-neutral-500 hover:text-neutral-100"
-          />
+        <div className="titlebar-button" id="titlebar-maximize" onClick={maximizeWebview}>
+          <Icon icon="tabler:maximize" width={30} className="cursor-pointer text-neutral-500 hover:text-neutral-100" />
         </div>
-        <div className="titlebar-button" id="titlebar-close" onClick={windowClose}>
+        <div className="titlebar-button" id="titlebar-close" onClick={closeWebview}>
           <Icon
             icon="solar:close-square-outline"
             width={30}
