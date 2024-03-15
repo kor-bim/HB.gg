@@ -53,7 +53,7 @@ export default function RootLayout({
       <body className={`antialiased ${PretendardFont.variable} font-sans`}>
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
           <main id="hbgg-app">
-            <div className="flex flex-col h-[100vh]">
+            <div className="flex flex-col h-[100vh] ">
               <TitleBar />
               <GnbMenu />
               <div className="overflow-x-hidden overflow-y-auto">{children}</div>
