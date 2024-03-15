@@ -8,22 +8,22 @@ export const GnbMenu = () => {
       <NavbarContent justify="start"></NavbarContent>
       <NavbarContent className="gap-12" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/">
             홈
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href={'/champion'}>
             챔피언
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href={'/tier'}>
             티어 리스트
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href={'/overlay'}>
             오버레이
           </Link>
         </NavbarItem>
