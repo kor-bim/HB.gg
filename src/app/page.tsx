@@ -56,6 +56,7 @@ export default function Home() {
           <Card isHoverable isPressable className="h-[500px]">
             <Image
               removeWrapper
+              aria-label="Card background"
               alt="Card background"
               className="z-0 w-full h-full object-cover"
               src="https://blitz-cdn.blitz.gg/blitz/lol/champion_centered/Smolder.webp"
