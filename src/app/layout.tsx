@@ -2,9 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Providers } from '@/app/providers'
 import { ReactNode } from 'react'
-import { GnbMenu } from '@/app/_component/gnb-menu'
 import { PretendardFont } from '@/app/fonts'
-import { TitleBar } from './_component/title-bar'
+import { TitleBar } from '@/app/_components/title-bar'
 
 export const metadata: Metadata = {
   title: {
@@ -55,8 +54,7 @@ export default function RootLayout({
           <main id="hbgg-app">
             <div className="flex flex-col h-[100vh] ">
               <TitleBar />
-              <GnbMenu />
-              <div className="overflow-x-hidden overflow-y-auto">{children}</div>
+              {children}
             </div>
           </main>
         </Providers>
