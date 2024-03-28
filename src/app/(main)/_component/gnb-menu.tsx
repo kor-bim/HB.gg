@@ -8,7 +8,7 @@ export const GnbMenu = () => {
       <NavbarContent justify="start"></NavbarContent>
       <NavbarContent className="gap-12" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="/">
+          <Link color="foreground" href="/public">
             홈
           </Link>
         </NavbarItem>
@@ -30,7 +30,14 @@ export const GnbMenu = () => {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button>로그인</Button>
+          <Button
+            href={'/login'}
+            as={Link}
+            className="border-2 hover:border-[#C89B8C] border-[#785A28] font-bold text-lg"
+            variant="bordered"
+          >
+            전투준비 완료!
+          </Button>
         </NavbarItem>
       </NavbarContent>
     </Navbar>
