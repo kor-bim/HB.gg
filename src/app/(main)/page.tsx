@@ -4,7 +4,7 @@ import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card'
 import { Chip } from '@nextui-org/chip'
 import { Badge } from '@nextui-org/badge'
 import { Link } from '@nextui-org/link'
-import { Search } from '@/app/_component/search'
+import { Search } from '@/app/(main)/_component/search'
 
 export default function Home() {
   return (
